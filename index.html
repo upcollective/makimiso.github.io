@@ -16,7 +16,7 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #fcfcfc;
+            background-color: #ffffff;
         }
         
         a {
@@ -37,9 +37,9 @@
         
         /* Header */
         header {
-            padding: 30px 0;
+            padding: 20px 0;
             background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -52,72 +52,111 @@
         }
         
         .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1a1a1a;
+            height: 50px;
         }
         
-        .logo span {
-            color: #0056b3;
+        .logo img {
+            height: 100%;
+            width: auto;
         }
         
         /* Hero section */
         .hero {
-            padding: 80px 0;
-            background-color: #f5f9ff;
-            background: linear-gradient(135deg, #f5f9ff 0%, #e8f4ff 100%);
+            padding: 100px 0;
+            background-color: #000;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: 
+                linear-gradient(45deg, transparent 45%, #333 45%, #333 55%, transparent 55%),
+                linear-gradient(135deg, transparent 45%, #333 45%, #333 55%, transparent 55%);
+            background-size: 30px 30px;
+            background-position: center;
         }
         
         .hero-content {
+            position: relative;
+            z-index: 2;
             max-width: 800px;
         }
         
         .hero h1 {
-            font-size: 48px;
+            font-size: 3.5rem;
             line-height: 1.2;
-            margin-bottom: 20px;
-            color: #1a1a1a;
+            margin-bottom: 30px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.02em;
         }
         
         .hero p {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 30px;
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            max-width: 700px;
         }
         
         .hero-cta {
             display: inline-block;
             padding: 14px 30px;
-            background-color: #0056b3;
-            color: #fff;
+            background-color: #fff;
+            color: #000;
             font-weight: 600;
-            border-radius: 4px;
-            transition: background-color 0.3s;
+            border-radius: 0;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
         }
         
         .hero-cta:hover {
-            background-color: #003d82;
-            color: #fff;
+            background-color: #f5f5f5;
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         /* Services section */
         .services {
-            padding: 80px 0;
+            padding: 100px 0;
+            background-color: #fff;
+            position: relative;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #000;
+            margin: 15px auto 0;
         }
         
         .section-title h2 {
-            font-size: 36px;
-            color: #1a1a1a;
+            font-size: 2.5rem;
+            color: #000;
             margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
         
         .section-title p {
-            font-size: 18px;
+            font-size: 1.1rem;
             color: #555;
             max-width: 700px;
             margin: 0 auto;
@@ -126,60 +165,69 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 40px;
         }
         
         .service-card {
             background-color: #fff;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 40px 30px;
             transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .service-icon {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: #0056b3;
+            font-size: 32px;
+            margin-bottom: 25px;
+            color: #000;
         }
         
         .service-card h3 {
-            font-size: 22px;
+            font-size: 1.3rem;
             margin-bottom: 15px;
-            color: #1a1a1a;
+            color: #000;
+            font-weight: 600;
+            letter-spacing: -0.01em;
         }
         
         .service-card p {
             color: #555;
+            flex-grow: 1;
         }
         
         /* About section */
         .about {
-            padding: 80px 0;
-            background-color: #f8f9fa;
+            padding: 100px 0;
+            background-color: #f9f9f9;
+            position: relative;
         }
         
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
             align-items: center;
         }
         
         .about-text h2 {
-            font-size: 36px;
+            font-size: 2.5rem;
             margin-bottom: 20px;
-            color: #1a1a1a;
+            color: #000;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
         
         .about-text p {
             margin-bottom: 20px;
             color: #555;
+            font-size: 1.05rem;
         }
         
         .team-members {
@@ -187,106 +235,162 @@
         }
         
         .team-member {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .team-member:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
         }
         
         .team-member h3 {
-            font-size: 20px;
-            margin-bottom: 5px;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #000;
         }
         
         .team-member p {
-            color: #666;
-            font-style: italic;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
         
         .about-image {
-            border-radius: 8px;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 0;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+            aspect-ratio: 4/3;
         }
         
         .about-image img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
             display: block;
+        }
+        
+        .about-image:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.05);
+            z-index: 1;
         }
         
         /* Contact section */
         .contact {
-            padding: 80px 0;
+            padding: 100px 0;
+            background-color: #fff;
         }
         
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 40px;
         }
         
         .contact-info h3 {
-            font-size: 22px;
-            margin-bottom: 20px;
-            color: #1a1a1a;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #000;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            position: relative;
+        }
+        
+        .contact-info h3:after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: #000;
+            margin-top: 15px;
         }
         
         .contact-method {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         
         .contact-method h4 {
-            font-size: 18px;
-            margin-bottom: 5px;
-            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #000;
+            font-weight: 500;
         }
         
         .contact-method p, .contact-method a {
             color: #555;
+            transition: color 0.3s;
+        }
+        
+        .contact-method a:hover {
+            color: #000;
         }
         
         /* Footer */
         footer {
-            background-color: #1a1a1a;
+            background-color: #000;
             color: #fff;
-            padding: 50px 0 20px;
+            padding: 80px 0 30px;
         }
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: 1.5fr repeat(auto-fit, minmax(200px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
         }
         
         .footer-logo {
-            font-size: 24px;
-            font-weight: 700;
             margin-bottom: 20px;
         }
         
-        .footer-logo span {
-            color: #4d94ff;
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .footer-social {
+            margin-top: 25px;
         }
         
         .footer-social a {
+            color: rgba(255, 255, 255, 0.7);
+            margin-right: 20px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        
+        .footer-social a:hover {
             color: #fff;
-            margin-right: 15px;
-            font-size: 20px;
         }
         
         .footer-heading {
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
             color: #fff;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
         
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             list-style: none;
         }
         
         .footer-links a {
-            color: #aaa;
+            color: rgba(255, 255, 255, 0.7);
             transition: color 0.3s;
+            font-size: 0.95rem;
         }
         
         .footer-links a:hover {
@@ -295,16 +399,36 @@
         
         .footer-bottom {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            color: #aaa;
-            font-size: 14px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Angular accents */
+        .angular-accent {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(0, 0, 0, 0.03);
+            transform: rotate(45deg);
+            z-index: 0;
+        }
+        
+        .accent-1 {
+            top: -150px;
+            right: 10%;
+        }
+        
+        .accent-2 {
+            bottom: -150px;
+            left: 5%;
         }
         
         /* Responsive adjustments */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .hero h1 {
-                font-size: 36px;
+                font-size: 2.8rem;
             }
             
             .about-content {
@@ -313,16 +437,40 @@
             
             .about-image {
                 order: -1;
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
         }
         
         @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 30px;
+            .hero {
+                padding: 80px 0;
             }
             
-            .section-title h2 {
-                font-size: 28px;
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .services, .about, .contact {
+                padding: 70px 0;
             }
         }
     </style>
@@ -333,12 +481,15 @@
     <!-- Header -->
     <header>
         <div class="container header-content">
-            <div class="logo">Maki<span>miso</span></div>
+            <div class="logo">
+                <img src="https://i.imgur.com/w823wdR.png" alt="Makimiso" style="height: 50px; width: auto;">
+            </div>
         </div>
     </header>
     
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
                 <h1>Design & Data Solutions for Purpose-Driven Organizations</h1>
@@ -350,6 +501,7 @@
     
     <!-- Services Section -->
     <section class="services" id="services">
+        <div class="angular-accent accent-1"></div>
         <div class="container">
             <div class="section-title">
                 <h2>Our Services</h2>
@@ -410,28 +562,29 @@
     
     <!-- About Section -->
     <section class="about" id="about">
+        <div class="angular-accent accent-2"></div>
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
                     <h2>Who We Are</h2>
                     <p>Makimiso Digital Solutions is a boutique digital agency specializing in design and data analytics for organizations focused on social impact and education.</p>
-                    <p>With 30+ years of combined experience in visual media and data research for nonprofits and educational institutions, we understand the unique challenges these organizations face in effectively communicating their work and impact.</p>
+                    <p>We bridge the gap between data insights and visual communication. With our combined expertise in UX design, art direction, and human-centered research, we understand the unique challenges organizations face in effectively communicating their work and impact.</p>
                     
                     <div class="team-members">
                         <div class="team-member">
                             <h3>Paolo Austria</h3>
-                            <p>15+ years in Art Direction and Visual Media</p>
+                            <p>15+ years as a Digital Art Director and UX Designer specializing in creating intuitive user experiences and solutions to complex design problems with a human-centered approach. Based in New York City.</p>
                         </div>
                         
                         <div class="team-member">
                             <h3>Jarrett Davis</h3>
-                            <p>15+ years in Nonprofit Research and Data Analysis</p>
+                            <p>15+ years as a Social Researcher and Consultant with extensive experience in human-centered research, data analysis, and developing evidence-based programs for vulnerable populations. Based in the Bronx, NY.</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="about-image">
-                    <img src="/api/placeholder/600/400" alt="Digital solutions team collaborating">
+                    <img src="https://i.imgur.com/hCAUpUN.jpg" alt="Makimiso team" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
@@ -456,7 +609,7 @@
                     
                     <div class="contact-method">
                         <h4>Phone</h4>
-                        <p><a href="tel:+1234567890">(123) 456-7890</a></p>
+                        <p><a href="tel:+17403045040">(740) 304-5040</a></p>
                     </div>
                     
                     <div class="contact-method">
@@ -473,7 +626,9 @@
         <div class="container">
             <div class="footer-content">
                 <div>
-                    <div class="footer-logo">Maki<span>miso</span></div>
+                    <div class="footer-logo">
+                        <img src="https://i.imgur.com/1KXL2c6.png" alt="Makimiso" style="height: 40px; width: auto;">
+                    </div>
                     <p>Design & data solutions for purpose-driven organizations.</p>
                     <div class="footer-social">
                         <a href="#"><i class="fab fa-linkedin"></i></a>
