@@ -111,7 +111,8 @@ body {
 }
 
 /* ===== LOGO STYLES ===== */
-.header-logo {
+.header-logo,
+.header-logo-img {
     height: 44px;
     width: 120px; /* Force specific width */
     max-width: 120px;
@@ -120,7 +121,8 @@ body {
     object-fit: contain;
 }
 
-.nav-logo:hover .header-logo {
+.nav-logo:hover .header-logo,
+.nav-logo:hover .header-logo-img {
     transform: scale(1.05);
 }
 
