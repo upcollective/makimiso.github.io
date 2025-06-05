@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Makimiso Digital Solutions</title>
+    <meta name="description" content="Explore our portfolio of design and data analytics projects for nonprofits and educational institutions. See how we help organizations communicate impact effectively.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">
+                    <div class="logo">M</div>
+                    <span>MAKIMISO</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-dropdown">
+                        <a href="services.html" class="nav-link">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="website-design.html">Website Design</a></li>
+                            <li><a href="data-dashboards.html">Data Dashboards</a></li>
+                            <li><a href="interactive-reports.html">Interactive Reports</a></li>
+                            <li><a href="visual-communication.html">Visual Communication</a></li>
+                            <li><a href="data-analysis.html">Data Analysis</a></li>
+                            <li><a href="digital-strategy.html">Digital Strategy</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="resources.html" class="nav-link">Resources</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Portfolio Hero Section -->
+    <section class="service-hero">
+        <div class="container">
+            <div class="service-hero-content">
+                <h1>Our Work</h1>
+                <p>Explore how we've helped nonprofits and educational institutions transform their data into compelling visual stories that drive engagement and support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Filter -->
+    <section class="service-content">
+        <div class="container">
+            <div class="portfolio-filters text-center mb-large">
+                <button class="portfolio-filter active" data-filter="all">All Projects</button>
+                <button class="portfolio-filter" data-filter="nonprofit">Nonprofits</button>
+                <button class="portfolio-filter" data-filter="education">Education</button>
+                <button class="portfolio-filter" data-filter="website">Websites</button>
+                <button class="portfolio-filter" data-filter="dashboard">Dashboards</button>
+                <button class="portfolio-filter" data-filter="visual">Visual Design</button>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="nonprofit dashboard">
+                    <div class="portfolio-image">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <path d="M3 3v5h5"/>
+                            <path d="m3 8 4-4 4 4h5l-1-1 4-4"/>
+                            <path d="M13 21v-7"/>
+                            <path d="m21 14-4-4-4 4"/>
+                        </svg>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Youth Safety Program Dashboard</h3>
+                        <p>Interactive dashboard for NYC schools tracking anti-trafficking curriculum implementation across all five boroughs, including vulnerability mapping and program effectiveness metrics.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Data Visualization</span>
+                            <span class="portfolio-tag">Education</span>
+                            <span class="portfolio-tag">Public Safety</span>
+                        </div>
+                        <div class="portfolio-results">
+                            <h4>Results:</h4>
+                            <ul>
+                                <li>Improved identification of at-risk students by 40%</li>
+                                <li>Streamlined program reporting for 1,700+ schools</li>
+                                <li>Enhanced data-driven decision making</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="education visual">
+                    <div class="portfolio-image">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                        </svg>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>University Research Report Redesign</h3>
+                        <p>Transformed traditional academic white papers into visually dynamic, presentation-style reports for Northeastern University, making complex research accessible to broader audiences.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Visual Communication</span>
+                            <span class="portfolio-tag">Academic</span>
+                            <span class="portfolio-tag">Report Design</span>
+                        </div>
+                        <div class="portfolio-results">
+                            <h4>Results:</h4>
+                            <ul>
+                                <li>Increased stakeholder engagement by 65%</li>
+                                <li>Improved research accessibility</li>
+                                <li>Enhanced university-community connections</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="nonprofit website">
+                    <div class="portfolio-image">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+                        </svg>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Youth Education Initiative Website</h3>
+                        <p>Complete website redesign for a local youth education nonprofit, featuring simplified navigation, mobile-first design, integrated volunteer portal, and streamlined program information.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Website Design</span>
+                            <span class="portfolio-tag">Youth Programs</span>
+                            <span class="portfolio-tag">Volunteer Management</span>
+                        </div>
+                        <div class="portfolio-results">
+                            <h4>Results:</h4>
+                            <ul>
+                                <li>150% increase in volunteer applications</li>
+                                <li>200% increase in program enrollments</li>
+                                <li>Improved mobile accessibility</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="nonprofit dashboard">
+                    <div class="portfolio-image">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                        </svg>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Community Development Impact Tracker</h3>
+                        <p>Comprehensive dashboard for a community development organization tracking housing initiatives, economic development programs, and social services across multiple neighborhoods.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Impact Measurement</span>
+                            <span class="portfolio-tag">Community Development</span>
+                            <span class="portfolio-tag">Data Integration</span>
+                        </div>
+                        <div class="portfolio-results">
+                            <h4>Results:</h4>
+                            <ul>
+                                <li>Streamlined impact reporting to funders</li>
+                                <li>Enhanced program coordination</li>
+                                <li>Improved grant application success</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="education visual">
+                    <div class="portfolio-image">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Educational Equity Infographic Series</h3>
+                        <p>Data visualization series for a school district highlighting achievement gaps, resource allocation, and intervention program effectiveness across different demographic groups.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Data Visualization</span>
+                            <span class="portfolio-tag">Educational Equity</span>
+                            <span class="portfolio-tag">Policy Communication</span>
+                        </div>
+                        <div class="portfolio-results">
+                            <h4>Results:</h4>
+                            <ul>
+                                <li>Informed policy decisions at district level</li>
+                                <li>Increased community awareness</li>
+                                <li>Enhanced stakeholder engagement</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item" data-category="nonprofit visual">
+                    <div class="portfolio-image">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                        </svg>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Annual Impact Report Design</h3>
+                        <p>Complete redesign of annual impact report for a social services organization, transforming 50 pages of text into an engaging, visually-driven story of community impact.</p>
+                        <div class="portfolio-tags">
+                            <span class="portfolio-tag">Report Design</span>
+                            <span class="portfolio-tag">Impact Communication</span>
+                            <span class="portfolio-tag">Donor Engagement</span>
+                        </div>
+                        <div class="portfolio-results">
+                            <h4>Results:</h4>
+                            <ul>
+                                <li>Increased donor retention by 25%</li>
+                                <li>Enhanced stakeholder engagement</li>
+                                <li>Improved funding proposals</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach Section -->
+    <section class="technology-stack">
+        <div class="container">
+            <h2 class="text-center mb-large">Our Approach to Every Project</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>Understanding Your Mission</h4>
+                    <p>We begin every project by deeply understanding your organization's goals, challenges, and the unique context in which you operate.</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Data-Driven Insights</h4>
+                    <p>Our research background ensures that all design decisions are informed by data and evidence, not just aesthetic preferences.</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Accessible Design</h4>
+                    <p>Every solution we create is designed to be accessible to all users, ensuring your message reaches the broadest possible audience.</p>
+                </div>
+                <div class="tech-item">
+                    <h4>Measurable Impact</h4>
+                    <p>We establish clear success metrics for every project and provide tools to track the effectiveness of our solutions over time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="text-center mb-large">What Our Clients Say</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>"Transformed Our Data Communication"</h4>
+                    <p>"Makimiso helped us turn overwhelming spreadsheets into clear, compelling dashboards that our board actually understands. Our funding proposals have never been stronger."</p>
+                    <p><strong>— Director, Community Development Organization</strong></p>
+                </div>
+                <div class="faq-item">
+                    <h4>"Partnership, Not Just Service"</h4>
+                    <p>"Paolo and Jarrett work as true partners. They understand our mission and translate our complex work into visuals that resonate with all our stakeholders."</p>
+                    <p><strong>— Program Manager, Youth Education Nonprofit</strong></p>
+                </div>
+                <div class="faq-item">
+                    <h4>"Accessible and Professional"</h4>
+                    <p>"Their combination of design expertise and social research background makes them uniquely qualified to serve nonprofits. They get it."</p>
+                    <p><strong>— Research Director, Educational Institution</strong></p>
+                </div>
+                <div class="faq-item">
+                    <h4>"Measurable Results"</h4>
+                    <p>"Since launching our new website and dashboards, we've seen significant increases in both donor engagement and program enrollment. The data speaks for itself."</p>
+                    <p><strong>— Executive Director, Social Services Agency</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="service-content">
+        <div class="container">
+            <div class="service-details">
+                <div class="service-main">
+                    <h2>Ready to Start Your Project?</h2>
+                    <p>Every successful project begins with understanding your unique needs and goals. Here's how we work together:</p>
+
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <h4>1. Free Consultation</h4>
+                            <p>We start with a 30-minute conversation to understand your organization, current challenges, and project goals. This consultation is completely free with no obligations.</p>
+                        </div>
+                        <div class="process-step">
+                            <h4>2. Discovery & Proposal</h4>
+                            <p>If we're a good fit, we'll conduct a deeper discovery session and provide a detailed proposal outlining our recommended approach, timeline, and investment.</p>
+                        </div>
+                        <div class="process-step">
+                            <h4>3. Collaborative Development</h4>
+                            <p>We work closely with your team throughout the design and development process, ensuring the final solution truly meets your needs and reflects your mission.</p>
+                        </div>
+                        <div class="process-step">
+                            <h4>4. Launch & Support</h4>
+                            <p>We provide training, documentation, and ongoing support to ensure your team can effectively use and maintain your new digital tools.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-sidebar">
+                    <div class="sidebar-cta">
+                        <h3>Start Your Project</h3>
+                        <p>Ready to transform how your organization communicates impact?</p>
+                        <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+                    </div>
+
+                    <div class="service-info">
+                        <h4>Project Investment</h4>
+                        <p><strong>Websites:</strong> Starting at $8,000</p>
+                        <p><strong>Dashboards:</strong> Starting at $5,000</p>
+                        <p><strong>Visual Reports:</strong> Starting at $3,000</p>
+                        <p><strong>Analysis Projects:</strong> Starting at $2,500</p>
+                        <p class="small-text">Investment varies based on scope and complexity. Free consultation included.</p>
+                    </div>
+
+                    <div class="related-services">
+                        <h4>Our Services</h4>
+                        <ul>
+                            <li><a href="website-design.html">Website Design</a></li>
+                            <li><a href="data-dashboards.html">Data Dashboards</a></li>
+                            <li><a href="interactive-reports.html">Interactive Reports</a></li>
+                            <li><a href="visual-communication.html">Visual Communication</a></li>
+                            <li><a href="data-analysis.html">Data Analysis</a></li>
+                            <li><a href="digital-strategy.html">Digital Strategy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Tell Your Story More Effectively?</h2>
+                <p>Let's discuss how we can help your organization transform complex data into compelling visual communications that drive engagement and support.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Start a Conversation</a>
+                    <a href="services.html" class="btn btn-secondary">Explore Our Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo">M</div>
+                        <span>MAKIMISO</span>
+                    </div>
+                    <p>Design & data solutions for purpose-driven organizations.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                        <a href="#" aria-label="Instagram"><svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                    </div>
+                </div>
+                
+                <div class="footer-nav">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="website-design.html">Website Design</a></li>
+                            <li><a href="data-dashboards.html">Data Dashboards</a></li>
+                            <li><a href="interactive-reports.html">Interactive Reports</a></li>
+                            <li><a href="visual-communication.html">Visual Communication</a></li>
+                            <li><a href="data-analysis.html">Data Analysis</a></li>
+                            <li><a href="digital-strategy.html">Digital Strategy</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="resources.html">Resources</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="mailto:hello@makimiso.com">hello@makimiso.com</a></li>
+                            <li><a href="tel:+19295246786">(929) 524-6786</a></li>
+                            <li>Bronx, New York, NY</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Makimiso Digital Solutions LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
