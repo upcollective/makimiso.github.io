@@ -110,6 +110,20 @@ body {
     transform: translateY(-1px);
 }
 
+/* ===== LOGO STYLES ===== */
+.header-logo {
+    height: 44px;
+    width: 120px; /* Force specific width */
+    max-width: 120px;
+    margin-right: 12px;
+    transition: var(--transition);
+    object-fit: contain;
+}
+
+.nav-logo:hover .header-logo {
+    transform: scale(1.05);
+}
+
 .logo {
     width: 44px;
     height: 44px;
@@ -261,6 +275,35 @@ body {
     background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
 }
 
+/* Enhanced Hero Background */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hero-logo-bg {
+    position: absolute;
+    top: 50%;
+    right: -10%;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
+    opacity: 0.03;
+    filter: brightness(2);
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(-50%) translateX(0) rotate(0deg); }
+    33% { transform: translateY(-60%) translateX(-20px) rotate(5deg); }
+    66% { transform: translateY(-40%) translateX(20px) rotate(-5deg); }
+}
+
 .hero-content {
     position: relative;
     z-index: 2;
@@ -337,6 +380,20 @@ body {
     margin-bottom: 16px;
     color: var(--gray-900);
     letter-spacing: -0.01em;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--gradient-pop);
+    border-radius: 2px;
 }
 
 .section-header p {
@@ -381,8 +438,26 @@ body {
     transition: var(--transition);
 }
 
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100px;
+    height: 100px;
+    background: var(--pop-color);
+    opacity: 0.1;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.5s ease;
+}
+
 .service-card:hover::before {
     transform: scaleX(1);
+}
+
+.service-card:hover::after {
+    transform: scale(3);
 }
 
 .service-card:hover {
@@ -436,6 +511,147 @@ body {
 .service-link:hover {
     color: var(--pop-color-hover);
     transform: translateX(4px);
+}
+
+/* ===== FOUNDERS SECTION ===== */
+.founders-section {
+    padding: 120px 0;
+    background: #fff;
+}
+
+.team-intro {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 120px;
+}
+
+.team-image-container {
+    text-align: center;
+}
+
+.team-photo {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-large);
+    transition: var(--transition);
+}
+
+.team-photo:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-xl);
+}
+
+.team-intro-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--gray-900);
+}
+
+.team-intro-content h4 {
+    font-size: 1.25rem;
+    color: var(--pop-color);
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.team-intro-content p {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+}
+
+.founder-profile {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.founder-profile-reverse {
+    grid-template-columns: 1fr 2fr;
+}
+
+.founder-image {
+    text-align: center;
+}
+
+.founder-photo {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-large);
+    transition: var(--transition);
+    filter: grayscale(20%);
+}
+
+.founder-photo:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-xl);
+    filter: grayscale(0%);
+}
+
+.founder-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--gray-900);
+}
+
+.founder-content h4 {
+    font-size: 1.25rem;
+    color: var(--pop-color);
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.founder-content p {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+    margin-bottom: 24px;
+    line-height: 1.7;
+}
+
+.founder-stats {
+    display: flex;
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 16px;
+    background: var(--gray-50);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--gray-300);
+    transition: var(--transition);
+    flex: 1;
+}
+
+.stat-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--pop-color);
+}
+
+.stat-item strong {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--pop-color);
+    margin-bottom: 4px;
+}
+
+.stat-item span {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    font-weight: 500;
 }
 
 /* ===== ABOUT PREVIEW SECTION ===== */
@@ -574,6 +790,13 @@ body {
     color: #fff;
     font-weight: 700;
     font-size: 1.25rem;
+}
+
+.footer-logo-img {
+    height: 36px;
+    width: auto;
+    margin-right: 12px;
+    filter: brightness(0) invert(1); /* Makes it white */
 }
 
 .footer-logo .logo {
@@ -1128,6 +1351,24 @@ body {
         gap: 60px;
     }
     
+    .team-intro {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .founder-profile,
+    .founder-profile-reverse {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .founder-stats {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
     .footer-content {
         grid-template-columns: 1fr;
         gap: 60px;
@@ -1171,6 +1412,12 @@ body {
         grid-template-columns: 1fr;
         gap: 32px;
     }
+    
+    .hero-logo-bg {
+        width: 400px;
+        height: 400px;
+        right: -20%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1206,8 +1453,27 @@ body {
         padding: 80px 0;
     }
     
+    .founders-section {
+        padding: 80px 0;
+    }
+    
     .cta {
         padding: 80px 0;
+    }
+    
+    .founder-stats {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .team-intro {
+        margin-bottom: 80px;
+    }
+    
+    .hero-logo-bg {
+        width: 300px;
+        height: 300px;
+        right: -30%;
     }
 }
 
@@ -1409,3 +1675,4 @@ body {
     font-size: 0.875rem;
     opacity: 0.8;
 }
+        
