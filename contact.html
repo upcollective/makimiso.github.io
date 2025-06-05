@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Makimiso Digital Solutions</title>
+    <meta name="description" content="Ready to enhance your organization's digital presence and data storytelling? Get in touch with Makimiso Digital Solutions to discuss your project.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">
+                    <div class="logo">M</div>
+                    <span>MAKIMISO</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-dropdown">
+                        <a href="services.html" class="nav-link">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="website-design.html">Website Design</a></li>
+                            <li><a href="data-dashboards.html">Data Dashboards</a></li>
+                            <li><a href="interactive-reports.html">Interactive Reports</a></li>
+                            <li><a href="visual-communication.html">Visual Communication</a></li>
+                            <li><a href="data-analysis.html">Data Analysis</a></li>
+                            <li><a href="digital-strategy.html">Digital Strategy</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="resources.html" class="nav-link">Resources</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+                <button class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contact Hero Section -->
+    <section class="service-hero">
+        <div class="container">
+            <div class="service-hero-content">
+                <h1>Get In Touch</h1>
+                <p>Ready to enhance your organization's digital presence and data storytelling? Let's discuss how we can help you communicate impact more effectively.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-form-container">
+                    <h2>Start a Conversation</h2>
+                    <p>Tell us about your project and we'll get back to you within 24 hours to schedule a consultation.</p>
+                    
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="organization">Organization</label>
+                            <input type="text" id="organization" name="organization">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="services">Services Interested In</label>
+                            <select id="services" name="services">
+                                <option value="">Select a service</option>
+                                <option value="website-design">Website Design</option>
+                                <option value="data-dashboards">Data Dashboards</option>
+                                <option value="interactive-reports">Interactive Reports</option>
+                                <option value="visual-communication">Visual Communication</option>
+                                <option value="data-analysis">Data Analysis</option>
+                                <option value="digital-strategy">Digital Strategy</option>
+                                <option value="multiple">Multiple Services</option>
+                                <option value="not-sure">Not Sure - Need Consultation</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget">Project Budget</label>
+                            <select id="budget" name="budget">
+                                <option value="">Select budget range</option>
+                                <option value="under-10k">Under $10,000</option>
+                                <option value="10k-25k">$10,000 - $25,000</option>
+                                <option value="25k-50k">$25,000 - $50,000</option>
+                                <option value="50k-plus">$50,000+</option>
+                                <option value="discuss">Prefer to discuss</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timeline">Project Timeline</label>
+                            <select id="timeline" name="timeline">
+                                <option value="">Select timeline</option>
+                                <option value="asap">ASAP</option>
+                                <option value="1-3-months">1-3 months</option>
+                                <option value="3-6-months">3-6 months</option>
+                                <option value="6-months-plus">6+ months</option>
+                                <option value="exploring">Just exploring</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Tell us about your project, goals, and any specific challenges you're facing..." required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="newsletter" value="yes">
+                                <span class="checkmark"></span>
+                                Subscribe to our newsletter for tips on digital strategy and data visualization
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p><a href="mailto:hello@makimiso.com">hello@makimiso.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p><a href="tel:+19295246786">(929) 524-6786</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Bronx, New York, NY</p>
+                                <p class="small-text">Serving nonprofits and educational institutions nationwide</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12,6 12,12 16,14"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Response Time</h4>
+                                <p>Within 24 hours</p>
+                                <p class="small-text">Monday - Friday, 9 AM - 6 PM EST</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="consultation-info">
+                        <h4>Free 30-Minute Consultation</h4>
+                        <p>We offer a complimentary consultation to discuss your project goals, challenges, and how our services can help your organization achieve greater impact.</p>
+                        
+                        <div class="consultation-benefits">
+                            <h5>What to expect:</h5>
+                            <ul>
+                                <li>Project scope discussion</li>
+                                <li>Timeline and budget overview</li>
+                                <li>Initial recommendations</li>
+                                <li>Q&A about our process</li>
+                                <li>Next steps planning</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="social-connect">
+                        <h4>Follow Our Work</h4>
+                        <div class="social-links">
+                            <a href="#" aria-label="LinkedIn" class="social-link">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                                LinkedIn
+                            </a>
+                            <a href="#" aria-label="Instagram" class="social-link">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                                Instagram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="text-center mb-large">Common Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>How do you work with organizations remotely?</h4>
+                    <p>We use video conferencing, collaborative design tools, and project management platforms to ensure seamless communication throughout your project, regardless of location.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do you work with organizations outside of New York?</h4>
+                    <p>Yes! While we're based in the Bronx, we work with nonprofits and educational institutions nationwide. Most of our process can be handled remotely.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What's included in the free consultation?</h4>
+                    <p>We'll discuss your current challenges, project goals, potential solutions, timeline, and budget. It's a no-pressure conversation to see if we're a good fit.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How do you charge for your services?</h4>
+                    <p>We typically work on a project basis with fixed fees, though we also offer retainer arrangements for ongoing work. Pricing depends on scope and timeline.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can you work with our existing tech stack?</h4>
+                    <p>Absolutely! We're experienced with most CRM systems, website platforms, and data tools used by nonprofits and educational institutions.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What makes you different from other agencies?</h4>
+                    <p>Our unique combination of design expertise and nonprofit research experience means we understand both the visual and data needs of purpose-driven organizations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Contact Methods -->
+    <section class="alternative-contact">
+        <div class="container">
+            <h2 class="text-center mb-large">Other Ways to Connect</h2>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <h3>Schedule a Call</h3>
+                    <p>Prefer to talk? Book a time that works for your schedule.</p>
+                    <a href="#" class="btn btn-secondary">Book a Call</a>
+                </div>
+                <div class="contact-method">
+                    <h3>Download Our Services Guide</h3>
+                    <p>Get detailed information about all our services and pricing.</p>
+                    <a href="#" class="btn btn-secondary">Download Guide</a>
+                </div>
+                <div class="contact-method">
+                    <h3>Join Our Newsletter</h3>
+                    <p>Get tips on digital strategy and data visualization for nonprofits.</p>
+                    <a href="#" class="btn btn-secondary">Subscribe</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo">M</div>
+                        <span>MAKIMISO</span>
+                    </div>
+                    <p>Design & data solutions for purpose-driven organizations.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+                        <a href="#" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                    </div>
+                </div>
+                
+                <div class="footer-nav">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="website-design.html">Website Design</a></li>
+                            <li><a href="data-dashboards.html">Data Dashboards</a></li>
+                            <li><a href="interactive-reports.html">Interactive Reports</a></li>
+                            <li><a href="visual-communication.html">Visual Communication</a></li>
+                            <li><a href="data-analysis.html">Data Analysis</a></li>
+                            <li><a href="digital-strategy.html">Digital Strategy</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="resources.html">Resources</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="mailto:hello@makimiso.com">hello@makimiso.com</a></li>
+                            <li><a href="tel:+19295246786">(929) 524-6786</a></li>
+                            <li>Bronx, New York, NY</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Makimiso Digital Solutions LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
