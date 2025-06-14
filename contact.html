@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Makimiso | Get In Touch for Design & Research Services</title>
+    <meta name="description" content="Ready to transform your digital impact? Contact Paolo and Jarrett to discuss research-informed design solutions for your mission-driven organization.">
+    <meta name="keywords" content="nonprofit design consultation, social impact design contact, data visualization services">
+    
+    <!-- Open Graph tags -->
+    <meta property="og:site_name" content="Makimiso Digital Solutions">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact Makimiso | Get In Touch">
+    <meta property="og:description" content="Ready to transform your digital impact? Contact our design and research team.">
+    <meta property="og:url" content="https://makimiso.com/contact.html">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="canonical" href="https://makimiso.com/contact.html">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/enhanced-scripts.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/logos/header logo.png" alt="Makimiso Digital Solutions" />
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="services.html" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link active">Contact</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Ready to Transform Your Digital Impact?</h1>
+                <p>We're here to help mission-driven organizations communicate their work more effectively. Whether you're planning a website redesign, need help visualizing program data, or want to explore ethical AI applications, we'd love to hear from you.</p>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-form-container">
+                        <h2>Get In Touch</h2>
+                        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form" id="contactForm">
+                            <input type="hidden" name="form-name" value="contact">
+                            <input type="hidden" name="bot-field" style="display: none;">
+                            
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required minlength="2">
+                                <span class="error-message" id="name-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message" id="email-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="organization">Organization</label>
+                                <input type="text" id="organization" name="organization" maxlength="100">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="project-type">Project Type *</label>
+                                <select id="project-type" name="project-type" required>
+                                    <option value="">Select a project type</option>
+                                    <option value="Research-Informed Design">Research-Informed Design</option>
+                                    <option value="Data Visualization">Data Visualization & Impact Communication</option>
+                                    <option value="Digital Strategy">Digital Strategy for Social Impact</option>
+                                    <option value="AI Consulting">Ethical AI Consulting</option>
+                                    <option value="Not Sure">Not Sure / Multiple Services</option>
+                                </select>
+                                <span class="error-message" id="project-type-error"></span>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="budget">Budget Range (Optional)</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Select budget range</option>
+                                    <option value="Under $5,000">Under $5,000</option>
+                                    <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                                    <option value="$10,000 - $25,000">$10,000 - $25,000</option>
+                                    <option value="$25,000 - $50,000">$25,000 - $50,000</option>
+                                    <option value="$50,000+">$50,000+</option>
+                                    <option value="Prefer to discuss">Prefer to discuss</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="5" required minlength="10" maxlength="1000" placeholder="Tell us about your project, challenges, or questions..."></textarea>
+                                <span class="error-message" id="message-error"></span>
+                                <span class="char-count" id="char-count">0/1000 characters</span>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" id="submit-btn">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-loading" style="display: none;">Sending...</span>
+                            </button>
+                        </form>
+                        
+                        <div class="form-success" id="form-success" style="display: none;">
+                            <h3>Thank You!</h3>
+                            <p>We've received your message and will get back to you within 24 hours.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <h3>Email</h3>
+                                <p><a href="mailto:paolo@makimiso.com">paolo@makimiso.com</a></p>
+                                <p><a href="mailto:jarrett@makimiso.com">jarrett@makimiso.com</a></p>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <h3>Location</h3>
+                                <p>New York, NY</p>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <h3>Response Time</h3>
+                                <p>We typically respond within 24 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What Happens Next -->
+        <section class="next-steps">
+            <div class="container">
+                <h2>What Happens Next</h2>
+                <div class="steps-grid">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Initial Response</h3>
+                        <p>We'll get back to you within 24 hours to acknowledge your inquiry and ask any initial questions.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Discovery Call</h3>
+                        <p>30-minute conversation to understand your needs, goals, and challenges in detail.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Proposal</h3>
+                        <p>Detailed proposal with project scope, timeline, deliverables, and investment.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Project Kickoff</h3>
+                        <p>Begin with research and strategy phase to ensure we understand your context deeply.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alternative Contact -->
+        <section class="alternative-contact">
+            <div class="container">
+                <h2>Prefer Direct Contact?</h2>
+                <p>You can also reach out to us directly via email:</p>
+                <div class="direct-contact">
+                    <div class="contact-person">
+                        <h3>Paolo Austria - Design Lead</h3>
+                        <p><a href="mailto:paolo@makimiso.com">paolo@makimiso.com</a></p>
+                        <p>For design, UX, and visual communication questions</p>
+                    </div>
+                    <div class="contact-person">
+                        <h3>Jarrett Davis - Research Lead</h3>
+                        <p><a href="mailto:jarrett@makimiso.com">jarrett@makimiso.com</a></p>
+                        <p>For research, data analysis, and strategy questions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Makimiso</h3>
+                    <p>Design & data solutions for purpose-driven organizations.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html">Research-Informed Design</a></li>
+                        <li><a href="services.html">Data Visualization & Impact Communication</a></li>
+                        <li><a href="services.html">Digital Strategy for Social Impact</a></li>
+                        <li><a href="services.html">Ethical AI Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:paolo@makimiso.com">paolo@makimiso.com</a></li>
+                        <li><a href="mailto:jarrett@makimiso.com">jarrett@makimiso.com</a></li>
+                        <li>New York, NY</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Makimiso Digital Solutions LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script-enhanced.js"></script>
+</body>
+</html>

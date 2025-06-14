@@ -1,0 +1,505 @@
+/* MAKIMISO SERVICES PAGE - PROFESSIONAL RESPONSIVE DESIGN */
+
+/* Updated color variables for accessibility compliance */
+:root {
+    --light-neutral: #fafafa;
+    --dark-navy: #01245e;
+    --accessible-orange: #e8851e;
+    --light-orange: #f4962a;
+    --orange-hover: #d4731a;
+    --bright-blue: #3d58f2;
+    
+    /* Enhanced shadows */
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* INTELLIGENT RESPONSIVE GRID SYSTEM */
+.services-grid {
+    display: grid;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+    margin-bottom: var(--spacing-xxl);
+}
+
+/* Mobile First: Single column */
+@media (max-width: 767px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Tablet: Two columns for better space usage */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .services-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Desktop: Two columns with optimal spacing */
+@media (min-width: 1200px) {
+    .services-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+        max-width: 1100px;
+        margin: 0 auto var(--spacing-xxl);
+    }
+}
+
+/* Ultra-wide: Maintain two columns but with better constraints */
+@media (min-width: 1400px) {
+    .services-grid {
+        max-width: 1200px;
+        gap: 3rem;
+    }
+}
+
+/* PROFESSIONAL SERVICE CARDS */
+.service-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(1, 36, 94, 0.08);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(1, 36, 94, 0.08);
+    height: fit-content; /* Prevents unnecessary stretching */
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accessible-orange), var(--bright-blue));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 40px rgba(1, 36, 94, 0.15);
+}
+
+/* SERVICE HEADER - CLEAN LAYOUT */
+.service-header {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(1rem, 3vw, 1.5rem);
+    margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+/* SIMPLIFIED PROFESSIONAL ICONS */
+.service-icon {
+    width: clamp(60px, 8vw, 80px);
+    height: clamp(60px, 8vw, 80px);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Clean icon backgrounds - no complex CSS shapes */
+.service-icon.research {
+    background: linear-gradient(135deg, var(--bright-blue) 0%, var(--accessible-orange) 100%);
+    color: white;
+}
+
+.service-icon.data-viz {
+    background: linear-gradient(135deg, var(--accessible-orange) 0%, var(--bright-blue) 100%);
+    color: white;
+}
+
+.service-icon.strategy {
+    background: linear-gradient(135deg, var(--dark-navy) 0%, var(--bright-blue) 100%);
+    color: white;
+}
+
+.service-icon.ai {
+    background: linear-gradient(135deg, var(--accessible-orange) 0%, var(--dark-navy) 100%);
+    color: white;
+}
+
+/* Simple icon content - replace emoji with better symbols */
+.service-icon.research::before { content: '🔍'; }
+.service-icon.data-viz::before { content: '📊'; }
+.service-icon.strategy::before { content: '⚡'; }
+.service-icon.ai::before { content: '🤖'; }
+
+.service-card:hover .service-icon {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* SERVICE TYPOGRAPHY */
+.service-header h2 {
+    margin: 0;
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+    font-weight: 700;
+    color: var(--dark-navy);
+    line-height: 1.3;
+}
+
+.service-description {
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    color: #64748B;
+    line-height: 1.6;
+    margin-bottom: clamp(1.5rem, 4vw, 2rem);
+}
+
+/* INTELLIGENT INTERNAL LAYOUT */
+.service-details-grid {
+    display: grid;
+    gap: clamp(1rem, 3vw, 1.5rem);
+}
+
+/* Mobile: Stack vertically always */
+@media (max-width: 767px) {
+    .service-details-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-header {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+}
+
+/* Tablet: Single column in each card since cards are side-by-side */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .service-details-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Desktop: Two columns within each card since we have space */
+@media (min-width: 1200px) {
+    .service-details-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+/* SECTION STYLING */
+.service-deliverables,
+.service-ideal-for {
+    background: rgba(250, 250, 250, 0.7);
+    padding: clamp(1rem, 3vw, 1.5rem);
+    border-radius: 12px;
+    border: 1px solid rgba(1, 36, 94, 0.06);
+}
+
+.service-deliverables h3,
+.service-ideal-for h3 {
+    color: var(--dark-navy);
+    margin-bottom: clamp(0.75rem, 2vw, 1rem);
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    font-weight: 600;
+}
+
+.service-deliverables h3::after {
+    content: ' ✓';
+    color: var(--accessible-orange);
+    font-size: 0.9em;
+}
+
+.service-ideal-for h3::after {
+    content: ' ★';
+    color: var(--bright-blue);
+    font-size: 0.9em;
+}
+
+.service-deliverables ul,
+.service-ideal-for ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-deliverables li,
+.service-ideal-for li {
+    padding: clamp(0.25rem, 1vw, 0.5rem) 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #475569;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    line-height: 1.5;
+}
+
+.service-deliverables li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accessible-orange);
+    font-weight: bold;
+}
+
+.service-ideal-for li::before {
+    content: '◆';
+    position: absolute;
+    left: 0.25rem;
+    top: 0.6rem;
+    color: var(--bright-blue);
+    font-size: 0.7rem;
+}
+
+/* PAGE HEADER ENHANCEMENT */
+.page-header {
+    background: linear-gradient(135deg, var(--dark-navy) 0%, var(--bright-blue) 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    padding: clamp(3rem, 8vw, 5rem) 0;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(232, 133, 30, 0.1) 50%, 
+        transparent 70%);
+    animation: shimmer 8s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.3; transform: translateX(-20px); }
+    50% { opacity: 0.8; transform: translateX(20px); }
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 2;
+}
+
+.page-header h1 {
+    color: white !important;
+    font-size: clamp(2rem, 6vw, 3rem);
+    text-align: center;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 700;
+}
+
+.page-header p {
+    color: white !important;
+    opacity: 0.95;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    line-height: 1.6;
+}
+
+/* SECTIONS STYLING */
+.services-detail {
+    background: white;
+    padding: clamp(3rem, 8vw, 5rem) 0;
+}
+
+.our-process {
+    background: var(--light-neutral);
+    padding: clamp(3rem, 8vw, 5rem) 0;
+}
+
+.our-process h2 {
+    text-align: center;
+    margin-bottom: clamp(2rem, 6vw, 3rem);
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+    color: var(--dark-navy);
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(1.5rem, 4vw, 2rem);
+}
+
+.process-step {
+    text-align: center;
+    padding: clamp(1.5rem, 4vw, 2rem);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(1, 36, 94, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.process-step:hover {
+    transform: translateY(-4px);
+}
+
+.step-number {
+    width: clamp(50px, 8vw, 60px);
+    height: clamp(50px, 8vw, 60px);
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accessible-orange), var(--bright-blue));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    font-weight: 700;
+    margin: 0 auto clamp(1rem, 3vw, 1.5rem);
+}
+
+.process-step h3 {
+    color: var(--dark-navy);
+    margin-bottom: clamp(0.75rem, 2vw, 1rem);
+    font-size: clamp(1.125rem, 3vw, 1.25rem);
+}
+
+.process-step p {
+    color: #64748B;
+    line-height: 1.6;
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+}
+
+/* INTEGRATION SECTION */
+.service-integration {
+    background: white;
+    padding: clamp(3rem, 8vw, 5rem) 0;
+}
+
+.service-integration h2 {
+    text-align: center;
+    margin-bottom: clamp(2rem, 6vw, 3rem);
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+    color: var(--dark-navy);
+}
+
+.integration-content {
+    max-width: 800px;
+    margin: 0 auto clamp(2rem, 6vw, 3rem);
+    text-align: center;
+}
+
+.integration-content p {
+    font-size: clamp(1rem, 3vw, 1.125rem);
+    color: #64748B;
+    line-height: 1.7;
+}
+
+.integration-benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: clamp(1.5rem, 4vw, 2rem);
+}
+
+.benefit {
+    text-align: center;
+    padding: clamp(1.5rem, 4vw, 2rem);
+    background: var(--light-neutral);
+    border-radius: 12px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.benefit:hover {
+    border-color: var(--accessible-orange);
+    transform: translateY(-4px);
+}
+
+.benefit h3 {
+    color: var(--dark-navy);
+    margin-bottom: clamp(0.75rem, 2vw, 1rem);
+    font-size: clamp(1.125rem, 3vw, 1.25rem);
+}
+
+.benefit p {
+    color: #64748B;
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+    line-height: 1.6;
+}
+
+/* CTA SECTION */
+.services-cta {
+    background: linear-gradient(135deg, var(--accessible-orange) 0%, var(--dark-navy) 100%);
+    color: white;
+    text-align: center;
+    padding: clamp(3rem, 8vw, 5rem) 0;
+}
+
+.services-cta h2 {
+    color: white;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+}
+
+.services-cta p {
+    font-size: clamp(1rem, 3vw, 1.125rem);
+    margin-bottom: clamp(1.5rem, 4vw, 2rem);
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* BUTTON STYLING */
+.btn-primary {
+    background: white;
+    color: var(--dark-navy);
+    border: 2px solid white;
+    padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+    background: var(--light-neutral);
+}
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.service-card:nth-child(1) { animation-delay: 0.1s; }
+.service-card:nth-child(2) { animation-delay: 0.2s; }
+.service-card:nth-child(3) { animation-delay: 0.3s; }
+.service-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .page-header::before {
+        animation: none !important;
+    }
+}

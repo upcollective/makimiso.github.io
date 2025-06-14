@@ -1,0 +1,151 @@
+/* Enhanced JavaScript Styles - Companion CSS for improved script.js */
+
+/* Fade-in animation classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Form field validation states */
+.error {
+    border-color: var(--accessible-orange) !important;
+    box-shadow: 0 0 0 3px rgba(232, 133, 30, 0.1) !important;
+}
+
+.valid {
+    border-color: var(--bright-blue) !important;
+    box-shadow: 0 0 0 3px rgba(61, 88, 242, 0.1) !important;
+}
+
+/* Notification system */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 9999;
+    transform: translateX(100%);
+    animation: slideInNotification 0.3s ease forwards;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+}
+
+.notification--info {
+    background: var(--bright-blue);
+}
+
+.notification--error {
+    background: var(--accessible-orange);
+}
+
+.notification--success {
+    background: #10B981;
+}
+
+@keyframes slideInNotification {
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Loading state for buttons */
+.btn[aria-busy="true"] {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.btn-loading {
+    display: none;
+}
+
+/* Enhanced mobile menu accessibility */
+.nav-menu[aria-hidden="true"] {
+    visibility: hidden;
+}
+
+.nav-toggle[aria-expanded="true"] .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Skip links for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--dark-navy);
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    z-index: 10000;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* Enhanced focus styles */
+.service-card:focus-within,
+.process-step:focus-within {
+    outline: 2px solid var(--bright-blue);
+    outline-offset: 2px;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in,
+    .notification,
+    .service-card,
+    .process-step {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .fade-in {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .notification {
+        border: 2px solid currentColor;
+    }
+    
+    .error {
+        border-width: 3px !important;
+    }
+    
+    .valid {
+        border-width: 3px !important;
+    }
+}
+
+/* Enhanced responsive behavior */
+@media (max-width: 768px) {
+    .notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}
