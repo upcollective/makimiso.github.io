@@ -47,4 +47,4 @@ temp/
 coverage/
 
 # nyc test coverage
-.nyc_output
+.nyc_output_archive/
