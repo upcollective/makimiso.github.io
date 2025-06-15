@@ -211,9 +211,11 @@
             });
         }
         
-        function getImageUrl(mediaObject) {
-            if (!mediaObject?.data?.attributes?.url) return null;
-            const url = mediaObject.data.attributes.url;
+        function getImageUrl(mediaArray) {
+            if (!Array.isArray(mediaArray) || mediaArray.length === 0) return null;
+            const image = mediaArray[0]; // Get first image
+            if (!image?.url) return null;
+            const url = image.url;
             return url.startsWith('http') ? url : `${CMS_URL}${url}`;
         }
         
@@ -222,11 +224,23 @@
             return text.substring(0, maxLength).trim() + '...';
         }
         
+        // Convert Strapi content to plain text
+        function contentToText(content) {
+            if (!Array.isArray(content)) return '';
+            return content.map(block => {
+                if (block.type === 'paragraph' || block.type === 'heading') {
+                    return block.children?.map(child => child.text || '').join('') || '';
+                }
+                return '';
+            }).join(' ').trim();
+        }
+
         // Render single blog card
         function renderBlogCard(post) {
             const imageUrl = getImageUrl(post.featured_image);
             const tags = Array.isArray(post.tags) ? post.tags : [];
-            const excerpt = post.excerpt || truncateText(post.content?.replace(/<[^>]*>/g, ''));
+            const contentText = contentToText(post.content);
+            const excerpt = post.excerpt || truncateText(contentText);
             
             return `
                 <article class="blog-card">
@@ -234,7 +248,7 @@
                     <div class="blog-card-content">
                         <h2><a href="blog-post.html?slug=${post.slug}">${post.title}</a></h2>
                         <div class="blog-meta">
-                            <time datetime="${post.published_date}">${formatDate(post.published_date)}</time>
+                            <time datetime="${post.publishedAt}">${formatDate(post.publishedAt)}</time>
                         </div>
                         ${excerpt ? `<p class="blog-excerpt">${excerpt}</p>` : ''}
                         ${tags.length > 0 ? `
