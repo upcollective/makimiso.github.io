@@ -72,39 +72,37 @@
         </article>
     </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="assets/images/logos/header logo.png" alt="Makimiso Digital Solutions" />
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Makimiso</h3>
+                    <p>Design & data solutions for purpose-driven organizations.</p>
                 </div>
-                <p class="footer-description">
-                    Research-informed design solutions for nonprofits and educational institutions.
-                </p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Contact Info</h3>
-                <div class="contact-info">
-                    <p>paolo@makimiso.com</p>
-                    <p>jarrett@makimiso.com</p>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html">Research-Informed Design</a></li>
+                        <li><a href="services.html">Data Visualization & Impact Communication</a></li>
+                        <li><a href="services.html">Digital Strategy for Social Impact</a></li>
+                        <li><a href="services.html">Ethical AI Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:paolo@makimiso.com">paolo@makimiso.com</a></li>
+                        <li><a href="mailto:jarrett@makimiso.com">jarrett@makimiso.com</a></li>
+                        <li>New York, NY</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 Makimiso Digital Solutions. All rights reserved.</p>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Makimiso Digital Solutions LLC. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
@@ -117,16 +115,43 @@
             const urlParams = new URLSearchParams(window.location.search);
             const postId = urlParams.get('id');
             
+            console.log('Blog post ID from URL:', postId);
+            
             if (!postId) {
-                showError('No post ID provided');
+                showError('No post ID provided in URL');
                 return;
             }
 
             try {
-                const response = await fetch(`${API_BASE_URL}/blog-posts/${postId}?populate=*`);
+                console.log('Fetching blog post from:', `${API_BASE_URL}/blog-posts/${postId}?populate=*`);
+                
+                const response = await fetch(`${API_BASE_URL}/blog-posts/${postId}?populate=*`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                
+                console.log('Blog post response status:', response.status);
                 
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    // Try with documentId if id doesn't work
+                    console.log('Trying with different endpoint...');
+                    const alternativeResponse = await fetch(`${API_BASE_URL}/blog-posts?filters[documentId][$eq]=${postId}&populate=*`);
+                    
+                    if (!alternativeResponse.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    const alternativeResult = await alternativeResponse.json();
+                    console.log('Alternative blog post response:', alternativeResult);
+                    
+                    if (alternativeResult.data && alternativeResult.data.length > 0) {
+                        displayBlogPost(alternativeResult.data[0]);
+                    } else {
+                        throw new Error('Post not found');
+                    }
+                    return;
                 }
                 
                 const result = await response.json();
@@ -136,11 +161,11 @@
                     displayBlogPost(result.data);
                 } else {
                     console.error('Unexpected response structure:', result);
-                    showError('Invalid response format from server');
+                    showError('Post not found or invalid response format');
                 }
             } catch (error) {
                 console.error('Error fetching blog post:', error);
-                showError('Unable to load blog post at this time. Please try again later.');
+                showError(`Unable to load blog post: ${error.message}`);
             }
         }
 
@@ -154,8 +179,32 @@
                 day: 'numeric'
             });
 
-            const featuredImage = postData.featured_image?.data?.[0]?.attributes?.url || 
-                                postData.featured_image?.data?.attributes?.url || null;
+            // Handle different image structure formats from Strapi
+            let featuredImage = null;
+            
+            if (postData.featured_image) {
+                if (postData.featured_image.data) {
+                    // Handle array format
+                    if (Array.isArray(postData.featured_image.data) && postData.featured_image.data.length > 0) {
+                        featuredImage = postData.featured_image.data[0].attributes?.url;
+                    } 
+                    // Handle single object format
+                    else if (postData.featured_image.data.attributes?.url) {
+                        featuredImage = postData.featured_image.data.attributes.url;
+                    }
+                    
+                    // Add base URL if it's a relative path
+                    if (featuredImage && featuredImage.startsWith('/')) {
+                        featuredImage = `https://makimiso-cms-production.up.railway.app${featuredImage}`;
+                    }
+                }
+                // Handle direct URL format
+                else if (typeof postData.featured_image === 'string') {
+                    featuredImage = postData.featured_image;
+                }
+            }
+            
+            console.log('Featured image URL:', featuredImage);
 
             const tags = postData.tags || [];
             const tagsHTML = Array.isArray(tags) ? tags.map(tag => `<span class="tag">${tag}</span>`).join('') : '';

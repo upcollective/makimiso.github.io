@@ -76,39 +76,37 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="assets/images/logos/header logo.png" alt="Makimiso Digital Solutions" />
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Makimiso</h3>
+                    <p>Design & data solutions for purpose-driven organizations.</p>
                 </div>
-                <p class="footer-description">
-                    Research-informed design solutions for nonprofits and educational institutions.
-                </p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Contact Info</h3>
-                <div class="contact-info">
-                    <p>paolo@makimiso.com</p>
-                    <p>jarrett@makimiso.com</p>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html">Research-Informed Design</a></li>
+                        <li><a href="services.html">Data Visualization & Impact Communication</a></li>
+                        <li><a href="services.html">Digital Strategy for Social Impact</a></li>
+                        <li><a href="services.html">Ethical AI Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:paolo@makimiso.com">paolo@makimiso.com</a></li>
+                        <li><a href="mailto:jarrett@makimiso.com">jarrett@makimiso.com</a></li>
+                        <li>New York, NY</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 Makimiso Digital Solutions. All rights reserved.</p>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Makimiso Digital Solutions LLC. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
@@ -219,9 +217,34 @@
                 const tags = postData.tags || [];
                 const tagsHTML = Array.isArray(tags) ? tags.map(tag => `<span class="tag">${tag}</span>`).join('') : '';
 
-                const featuredImage = postData.featured_image?.data?.[0]?.attributes?.url || 
-                                    postData.featured_image?.data?.attributes?.url || 
-                                    'https://via.placeholder.com/400x250?text=Makimiso+Blog';
+                // Handle different image structure formats from Strapi
+                let featuredImage = 'https://via.placeholder.com/400x250/e8851e/ffffff?text=Makimiso+Blog';
+                
+                if (postData.featured_image) {
+                    if (postData.featured_image.data) {
+                        // Handle array format
+                        if (Array.isArray(postData.featured_image.data) && postData.featured_image.data.length > 0) {
+                            featuredImage = postData.featured_image.data[0].attributes?.url || 
+                                          `https://makimiso-cms-production.up.railway.app${postData.featured_image.data[0].attributes?.url}` ||
+                                          featuredImage;
+                        } 
+                        // Handle single object format
+                        else if (postData.featured_image.data.attributes?.url) {
+                            let imageUrl = postData.featured_image.data.attributes.url;
+                            // Add base URL if it's a relative path
+                            if (imageUrl.startsWith('/')) {
+                                imageUrl = `https://makimiso-cms-production.up.railway.app${imageUrl}`;
+                            }
+                            featuredImage = imageUrl;
+                        }
+                    }
+                    // Handle direct URL format
+                    else if (typeof postData.featured_image === 'string') {
+                        featuredImage = postData.featured_image;
+                    }
+                }
+                
+                console.log('Featured image URL:', featuredImage);
 
                 return `
                     <article class="blog-card">
