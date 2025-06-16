@@ -135,21 +135,37 @@
                 console.log('Blog post response status:', response.status);
                 
                 if (!response.ok) {
-                    // Try with documentId if id doesn't work
-                    console.log('Trying with different endpoint...');
+                    // Try with documentId filter if direct ID doesn't work
+                    console.log('Direct ID failed, trying with documentId filter...');
                     const alternativeResponse = await fetch(`${API_BASE_URL}/blog-posts?filters[documentId][$eq]=${postId}&populate=*`);
                     
                     if (!alternativeResponse.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
+                        // Try numeric ID if documentId doesn't work
+                        console.log('DocumentId filter failed, trying numeric ID...');
+                        const numericResponse = await fetch(`${API_BASE_URL}/blog-posts/${postId}?populate=*`);
+                        
+                        if (!numericResponse.ok) {
+                            throw new Error(`Unable to find post with ID: ${postId}`);
+                        }
+                        
+                        const numericResult = await numericResponse.json();
+                        console.log('Numeric ID response:', numericResult);
+                        
+                        if (numericResult.data) {
+                            displayBlogPost(numericResult.data);
+                        } else {
+                            throw new Error('Post not found');
+                        }
+                        return;
                     }
                     
                     const alternativeResult = await alternativeResponse.json();
-                    console.log('Alternative blog post response:', alternativeResult);
+                    console.log('DocumentId filter response:', alternativeResult);
                     
                     if (alternativeResult.data && alternativeResult.data.length > 0) {
                         displayBlogPost(alternativeResult.data[0]);
                     } else {
-                        throw new Error('Post not found');
+                        throw new Error('Post not found with documentId');
                     }
                     return;
                 }
@@ -182,29 +198,37 @@
             // Handle different image structure formats from Strapi
             let featuredImage = null;
             
-            if (postData.featured_image) {
-                if (postData.featured_image.data) {
-                    // Handle array format
-                    if (Array.isArray(postData.featured_image.data) && postData.featured_image.data.length > 0) {
-                        featuredImage = postData.featured_image.data[0].attributes?.url;
-                    } 
-                    // Handle single object format
-                    else if (postData.featured_image.data.attributes?.url) {
-                        featuredImage = postData.featured_image.data.attributes.url;
-                    }
-                    
+            console.log('Raw featured_image data:', postData.featured_image);
+            
+            if (postData.featured_image && Array.isArray(postData.featured_image) && postData.featured_image.length > 0) {
+                // Handle array format (as seen in API response)
+                const imageData = postData.featured_image[0];
+                console.log('Image data:', imageData);
+                
+                if (imageData.url) {
+                    let imageUrl = imageData.url;
                     // Add base URL if it's a relative path
-                    if (featuredImage && featuredImage.startsWith('/')) {
-                        featuredImage = `https://makimiso-cms-production.up.railway.app${featuredImage}`;
+                    if (imageUrl.startsWith('/')) {
+                        imageUrl = `https://makimiso-cms-production.up.railway.app${imageUrl}`;
                     }
+                    featuredImage = imageUrl;
                 }
-                // Handle direct URL format
-                else if (typeof postData.featured_image === 'string') {
-                    featuredImage = postData.featured_image;
+            } else if (postData.featured_image?.data) {
+                // Handle nested data format
+                if (Array.isArray(postData.featured_image.data) && postData.featured_image.data.length > 0) {
+                    const imageUrl = postData.featured_image.data[0].attributes?.url;
+                    if (imageUrl) {
+                        featuredImage = imageUrl.startsWith('/') ? 
+                            `https://makimiso-cms-production.up.railway.app${imageUrl}` : imageUrl;
+                    }
+                } else if (postData.featured_image.data.attributes?.url) {
+                    const imageUrl = postData.featured_image.data.attributes.url;
+                    featuredImage = imageUrl.startsWith('/') ? 
+                        `https://makimiso-cms-production.up.railway.app${imageUrl}` : imageUrl;
                 }
             }
             
-            console.log('Featured image URL:', featuredImage);
+            console.log('Final featured image URL:', featuredImage);
 
             const tags = postData.tags || [];
             const tagsHTML = Array.isArray(tags) ? tags.map(tag => `<span class="tag">${tag}</span>`).join('') : '';

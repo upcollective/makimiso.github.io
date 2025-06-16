@@ -217,34 +217,40 @@
                 const tags = postData.tags || [];
                 const tagsHTML = Array.isArray(tags) ? tags.map(tag => `<span class="tag">${tag}</span>`).join('') : '';
 
-                // Handle different image structure formats from Strapi
+                // Handle different image structure formats from Strapi  
                 let featuredImage = 'https://via.placeholder.com/400x250/e8851e/ffffff?text=Makimiso+Blog';
                 
-                if (postData.featured_image) {
-                    if (postData.featured_image.data) {
-                        // Handle array format
-                        if (Array.isArray(postData.featured_image.data) && postData.featured_image.data.length > 0) {
-                            featuredImage = postData.featured_image.data[0].attributes?.url || 
-                                          `https://makimiso-cms-production.up.railway.app${postData.featured_image.data[0].attributes?.url}` ||
-                                          featuredImage;
-                        } 
-                        // Handle single object format
-                        else if (postData.featured_image.data.attributes?.url) {
-                            let imageUrl = postData.featured_image.data.attributes.url;
-                            // Add base URL if it's a relative path
-                            if (imageUrl.startsWith('/')) {
-                                imageUrl = `https://makimiso-cms-production.up.railway.app${imageUrl}`;
-                            }
-                            featuredImage = imageUrl;
+                console.log('Raw featured_image data:', postData.featured_image);
+                
+                if (postData.featured_image && Array.isArray(postData.featured_image) && postData.featured_image.length > 0) {
+                    // Handle array format (as seen in API response)
+                    const imageData = postData.featured_image[0];
+                    console.log('Image data:', imageData);
+                    
+                    if (imageData.url) {
+                        let imageUrl = imageData.url;
+                        // Add base URL if it's a relative path
+                        if (imageUrl.startsWith('/')) {
+                            imageUrl = `https://makimiso-cms-production.up.railway.app${imageUrl}`;
                         }
+                        featuredImage = imageUrl;
                     }
-                    // Handle direct URL format
-                    else if (typeof postData.featured_image === 'string') {
-                        featuredImage = postData.featured_image;
+                } else if (postData.featured_image?.data) {
+                    // Handle nested data format
+                    if (Array.isArray(postData.featured_image.data) && postData.featured_image.data.length > 0) {
+                        const imageUrl = postData.featured_image.data[0].attributes?.url;
+                        if (imageUrl) {
+                            featuredImage = imageUrl.startsWith('/') ? 
+                                `https://makimiso-cms-production.up.railway.app${imageUrl}` : imageUrl;
+                        }
+                    } else if (postData.featured_image.data.attributes?.url) {
+                        const imageUrl = postData.featured_image.data.attributes.url;
+                        featuredImage = imageUrl.startsWith('/') ? 
+                            `https://makimiso-cms-production.up.railway.app${imageUrl}` : imageUrl;
                     }
                 }
                 
-                console.log('Featured image URL:', featuredImage);
+                console.log('Final featured image URL:', featuredImage);
 
                 return `
                     <article class="blog-card">
@@ -257,13 +263,13 @@
                                 ${postData.author ? `<span class="blog-author">By ${postData.author}</span>` : ''}
                             </div>
                             <h2 class="blog-card-title">
-                                <a href="blog-post.html?id=${post.id}" class="blog-card-link">
+                                <a href="blog-post.html?id=${post.documentId || post.id}" class="blog-card-link">
                                     ${postData.title}
                                 </a>
                             </h2>
                             <p class="blog-excerpt">${excerpt}</p>
                             ${tagsHTML ? `<div class="blog-tags">${tagsHTML}</div>` : ''}
-                            <a href="blog-post.html?id=${post.id}" class="read-more-btn">
+                            <a href="blog-post.html?id=${post.documentId || post.id}" class="read-more-btn">
                                 Read More <span class="arrow">→</span>
                             </a>
                         </div>
