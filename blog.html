@@ -4,317 +4,213 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Makimiso Digital Solutions</title>
-    <meta name="description" content="Latest insights and updates from Makimiso Digital Solutions">
+    <meta name="description" content="Latest insights and updates from Makimiso Digital Solutions on design, research, and digital innovation">
     
-    <!-- Match your existing CSS structure -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Add blog-specific styles -->
-    <style>
-        .blog-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .blog-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        .blog-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-        
-        .blog-card-content {
-            padding: 1.5rem;
-        }
-        
-        .blog-card h2 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.4rem;
-            color: #2c3e50;
-        }
-        
-        .blog-card h2 a {
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        .blog-card h2 a:hover {
-            color: #3498db;
-        }
-        
-        .blog-meta {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .blog-excerpt {
-            color: #34495e;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-        
-        .blog-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .tag {
-            background: #ecf0f1;
-            color: #2c3e50;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        
-        .read-more {
-            display: inline-flex;
-            align-items: center;
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        
-        .read-more:hover {
-            color: #2980b9;
-        }
-        
-        .read-more::after {
-            content: '→';
-            margin-left: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .read-more:hover::after {
-            transform: translateX(4px);
-        }
-        
-        .loading, .error, .no-posts {
-            text-align: center;
-            padding: 3rem;
-            color: #7f8c8d;
-        }
-        
-        .error {
-            background: #fdf2f2;
-            color: #e74c3c;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-        
-        .loading {
-            font-size: 1.1rem;
-        }
-        
-        .blog-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .blog-header h1 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-        
-        .blog-header p {
-            font-size: 1.1rem;
-            color: #7f8c8d;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        @media (max-width: 768px) {
-            .blog-container {
-                padding: 1rem;
-            }
-            
-            .blog-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .blog-header h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    <!-- Open Graph tags -->
+    <meta property="og:site_name" content="Makimiso Digital Solutions">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog - Makimiso Digital Solutions">
+    <meta property="og:description" content="Latest insights on design, research, and digital innovation">
+    <meta property="og:url" content="https://makimiso.com/blog.html">
+    
+    <link rel="canonical" href="https://makimiso.com/blog.html">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/enhanced-scripts.css">
 </head>
 <body>
-    <!-- Use your existing header/nav structure -->
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="blog.html" class="active">Blog</a>
-            <a href="contact.html">Contact</a>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/logos/header logo.png" alt="Makimiso Digital Solutions" />
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="services.html" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="blog.html" class="nav-link active">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
         </nav>
     </header>
 
-    <main class="blog-container">
-        <div class="blog-header">
-            <h1>Latest Insights</h1>
-            <p>Stay updated with our thoughts on digital solutions, technology trends, and business innovation.</p>
-        </div>
-        
-        <div id="blog-content">
-            <div class="loading">
-                <p>Loading latest posts...</p>
+    <main id="main-content">
+        <!-- Blog Header Section -->
+        <section class="blog-hero">
+            <div class="container">
+                <div class="blog-hero-content">
+                    <h1 class="blog-title">Latest Insights</h1>
+                    <p class="blog-subtitle">Stay updated with our thoughts on digital solutions, technology trends, and business innovation.</p>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Blog Posts Section -->
+        <section class="blog-posts">
+            <div class="container">
+                <div id="blog-content">
+                    <div class="loading-state">
+                        <div class="loading-spinner"></div>
+                        <p>Loading latest posts...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Use your existing footer -->
-    <footer>
-        <p>&copy; 2025 Makimiso Digital Solutions. All rights reserved.</p>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="assets/images/logos/header logo.png" alt="Makimiso Digital Solutions" />
+                </div>
+                <p class="footer-description">
+                    Research-informed design solutions for nonprofits and educational institutions.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <div class="contact-info">
+                    <p>paolo@makimiso.com</p>
+                    <p>jarrett@makimiso.com</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Makimiso Digital Solutions. All rights reserved.</p>
+        </div>
     </footer>
 
+    <script src="js/script.js"></script>
     <script>
-        // Configuration - Update after Railway deployment
-        const CMS_URL = 'https://makimiso-cms-production.up.railway.app'; // Railway production URL
-        
-        // Utility functions
-        function formatDate(dateString) {
-            if (!dateString) return '';
-            const date = new Date(dateString);
-            return date.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
-        }
-        
-        function getImageUrl(mediaArray) {
-            if (!Array.isArray(mediaArray) || mediaArray.length === 0) return null;
-            const image = mediaArray[0]; // Get first image
-            if (!image?.url) return null;
-            const url = image.url;
-            return url.startsWith('http') ? url : `${CMS_URL}${url}`;
-        }
-        
-        function truncateText(text, maxLength = 120) {
-            if (!text || text.length <= maxLength) return text;
-            return text.substring(0, maxLength).trim() + '...';
-        }
-        
-        // Convert Strapi content to plain text
-        function contentToText(content) {
-            if (!Array.isArray(content)) return '';
-            return content.map(block => {
-                if (block.type === 'paragraph' || block.type === 'heading') {
-                    return block.children?.map(child => child.text || '').join('') || '';
-                }
-                return '';
-            }).join(' ').trim();
-        }
+        // Blog functionality
+        const API_BASE_URL = 'https://makimiso-cms-production.up.railway.app/api';
 
-        // Render single blog card
-        function renderBlogCard(post) {
-            const imageUrl = getImageUrl(post.featured_image);
-            const tags = Array.isArray(post.tags) ? post.tags : [];
-            const contentText = contentToText(post.content);
-            const excerpt = post.excerpt || truncateText(contentText);
-            
-            return `
-                <article class="blog-card">
-                    ${imageUrl ? `<img src="${imageUrl}" alt="${post.title}" loading="lazy">` : ''}
-                    <div class="blog-card-content">
-                        <h2><a href="blog-post.html?slug=${post.slug}">${post.title}</a></h2>
-                        <div class="blog-meta">
-                            <time datetime="${post.publishedAt}">${formatDate(post.publishedAt)}</time>
-                        </div>
-                        ${excerpt ? `<p class="blog-excerpt">${excerpt}</p>` : ''}
-                        ${tags.length > 0 ? `
-                            <div class="blog-tags">
-                                ${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                            </div>
-                        ` : ''}
-                        <a href="blog-post.html?slug=${post.slug}" class="read-more">Read More</a>
-                    </div>
-                </article>
-            `;
-        }
-        
-        // Load and display blog posts
-        async function loadBlogPosts() {
-            const container = document.getElementById('blog-content');
-            
+        async function fetchBlogPosts() {
             try {
-                console.log('Fetching blog posts from:', `${CMS_URL}/api/blog-posts`);
-                
-                const response = await fetch(`${CMS_URL}/api/blog-posts?populate=featured_image&sort=published_date:desc&pagination[limit]=12`);
+                const response = await fetch(`${API_BASE_URL}/blog-posts?populate=*`);
                 
                 if (!response.ok) {
-                    throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 
-                const data = await response.json();
-                const posts = data.data || [];
+                const result = await response.json();
+                console.log('Blog posts response:', result);
                 
-                console.log('Fetched posts:', posts.length);
-                
-                if (posts.length === 0) {
-                    container.innerHTML = `
-                        <div class="no-posts">
-                            <h3>No blog posts yet</h3>
-                            <p>We're working on some great content. Check back soon!</p>
-                        </div>
-                    `;
-                    return;
+                if (result.data && Array.isArray(result.data)) {
+                    displayBlogPosts(result.data);
+                } else {
+                    console.error('Unexpected response structure:', result);
+                    showError('Invalid response format from server');
                 }
-                
-                const blogGrid = posts
-                    .filter(postData => postData.publishedAt !== null)
-                    .map(postData => renderBlogCard(postData))
-                    .join('');
-                
-                container.innerHTML = `<div class="blog-grid">${blogGrid}</div>`;
-                
             } catch (error) {
-                console.error('Error loading blog posts:', error);
-                container.innerHTML = `
-                    <div class="error">
-                        <h3>Unable to load blog posts</h3>
-                        <p>We're experiencing technical difficulties. Please try again later.</p>
-                        <details>
-                            <summary>Technical Details</summary>
-                            <p><small>Error: ${error.message}</small></p>
-                            <p><small>CMS URL: ${CMS_URL}</small></p>
-                        </details>
-                    </div>
-                `;
+                console.error('Error fetching blog posts:', error);
+                showError('Unable to load blog posts at this time. Please try again later.');
             }
         }
-        
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', loadBlogPosts);
+
+        function displayBlogPosts(posts) {
+            const blogContent = document.getElementById('blog-content');
+            
+            if (posts.length === 0) {
+                blogContent.innerHTML = `
+                    <div class="no-posts">
+                        <h3>No posts available yet</h3>
+                        <p>Check back soon for our latest insights and updates!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const postsHTML = posts.map(post => {
+                const postData = post.attributes || post;
+                const publishedDate = new Date(postData.publishedAt || postData.createdAt).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                const excerpt = postData.excerpt || (postData.content && postData.content.substring(0, 150) + '...') || 'Click to read more about this post.';
+                
+                const tags = postData.tags || [];
+                const tagsHTML = Array.isArray(tags) ? tags.map(tag => `<span class="tag">${tag}</span>`).join('') : '';
+
+                const featuredImage = postData.featured_image?.data?.[0]?.attributes?.url || 
+                                    postData.featured_image?.data?.attributes?.url || 
+                                    'https://via.placeholder.com/400x250?text=Makimiso+Blog';
+
+                return `
+                    <article class="blog-card">
+                        <div class="blog-card-image">
+                            <img src="${featuredImage}" alt="${postData.title}" loading="lazy" />
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">${publishedDate}</span>
+                                ${postData.author ? `<span class="blog-author">By ${postData.author}</span>` : ''}
+                            </div>
+                            <h2 class="blog-card-title">
+                                <a href="blog-post.html?id=${post.id}" class="blog-card-link">
+                                    ${postData.title}
+                                </a>
+                            </h2>
+                            <p class="blog-excerpt">${excerpt}</p>
+                            ${tagsHTML ? `<div class="blog-tags">${tagsHTML}</div>` : ''}
+                            <a href="blog-post.html?id=${post.id}" class="read-more-btn">
+                                Read More <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+
+            blogContent.innerHTML = `<div class="blog-grid">${postsHTML}</div>`;
+        }
+
+        function showError(message) {
+            const blogContent = document.getElementById('blog-content');
+            blogContent.innerHTML = `
+                <div class="error-state">
+                    <h3>Unable to Load Posts</h3>
+                    <p>${message}</p>
+                    <button onclick="fetchBlogPosts()" class="retry-btn">Try Again</button>
+                </div>
+            `;
+        }
+
+        // Initialize blog when page loads
+        document.addEventListener('DOMContentLoaded', fetchBlogPosts);
     </script>
 </body>
 </html>
