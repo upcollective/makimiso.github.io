@@ -291,8 +291,8 @@
                 }
                 
                 const blogGrid = posts
-                    .filter(postData => postData.attributes.published !== false)
-                    .map(postData => renderBlogCard(postData.attributes))
+                    .filter(postData => postData.publishedAt !== null)
+                    .map(postData => renderBlogCard(postData))
                     .join('');
                 
                 container.innerHTML = `<div class="blog-grid">${blogGrid}</div>`;
