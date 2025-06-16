@@ -196,8 +196,23 @@
             document.title = `${postData.title} - Makimiso Digital Solutions`;
             document.getElementById('post-title').content = `${postData.title} - Makimiso Digital Solutions`;
             
-            // Update meta description
-            const excerpt = postData.excerpt || (postData.content && postData.content.substring(0, 160) + '...');
+            // Update meta description - handle different content formats
+            let excerpt = postData.excerpt;
+            if (!excerpt && postData.content) {
+                if (typeof postData.content === 'string') {
+                    excerpt = postData.content.substring(0, 160) + '...';
+                } else if (Array.isArray(postData.content)) {
+                    const textContent = postData.content
+                        .filter(block => block.type === 'paragraph' && block.children)
+                        .map(block => block.children
+                            .filter(child => child.type === 'text')
+                            .map(child => child.text)
+                            .join('')
+                        )
+                        .join(' ');
+                    excerpt = textContent.substring(0, 160) + '...';
+                }
+            }
             if (excerpt) {
                 document.getElementById('post-description').content = excerpt;
                 document.getElementById('og-description').content = excerpt;
@@ -217,12 +232,56 @@
         function formatContent(content) {
             if (!content) return '';
             
-            // Basic formatting for content that might come from a rich text editor
-            return content
-                .replace(/\n\n/g, '</p><p>')
-                .replace(/\n/g, '<br>')
-                .replace(/^/, '<p>')
-                .replace(/$/, '</p>');
+            // Handle different content formats from Strapi
+            if (typeof content === 'string') {
+                // Basic formatting for plain text content
+                return content
+                    .replace(/\n\n/g, '</p><p>')
+                    .replace(/\n/g, '<br>')
+                    .replace(/^/, '<p>')
+                    .replace(/$/, '</p>');
+            } else if (Array.isArray(content)) {
+                // Handle Strapi rich text content blocks
+                return content.map(block => {
+                    if (block.type === 'paragraph' && block.children) {
+                        const text = block.children
+                            .map(child => {
+                                if (child.type === 'text') {
+                                    let text = child.text;
+                                    if (child.bold) text = `<strong>${text}</strong>`;
+                                    if (child.italic) text = `<em>${text}</em>`;
+                                    return text;
+                                }
+                                return '';
+                            })
+                            .join('');
+                        return `<p>${text}</p>`;
+                    } else if (block.type === 'heading' && block.children) {
+                        const level = block.level || 2;
+                        const text = block.children
+                            .filter(child => child.type === 'text')
+                            .map(child => child.text)
+                            .join('');
+                        return `<h${level}>${text}</h${level}>`;
+                    } else if (block.type === 'list' && block.children) {
+                        const listType = block.format === 'ordered' ? 'ol' : 'ul';
+                        const items = block.children
+                            .map(item => {
+                                const text = item.children
+                                    .filter(child => child.type === 'text')
+                                    .map(child => child.text)
+                                    .join('');
+                                return `<li>${text}</li>`;
+                            })
+                            .join('');
+                        return `<${listType}>${items}</${listType}>`;
+                    }
+                    return '';
+                }).join('');
+            } else {
+                // Fallback for other formats
+                return '<p>Content format not supported.</p>';
+            }
         }
 
         function showError(message) {
