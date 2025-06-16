@@ -119,7 +119,17 @@
 
         async function fetchBlogPosts() {
             try {
-                const response = await fetch(`${API_BASE_URL}/blog-posts?populate=*`);
+                console.log('Fetching blog posts from:', `${API_BASE_URL}/blog-posts?populate=*`);
+                
+                const response = await fetch(`${API_BASE_URL}/blog-posts?populate=*`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                
+                console.log('Response status:', response.status);
+                console.log('Response headers:', response.headers);
                 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -127,17 +137,37 @@
                 
                 const result = await response.json();
                 console.log('Blog posts response:', result);
+                console.log('Data type:', typeof result.data);
+                console.log('Is data array:', Array.isArray(result.data));
                 
                 if (result.data && Array.isArray(result.data)) {
-                    displayBlogPosts(result.data);
+                    if (result.data.length === 0) {
+                        showNoPosts();
+                    } else {
+                        displayBlogPosts(result.data);
+                    }
                 } else {
                     console.error('Unexpected response structure:', result);
-                    showError('Invalid response format from server');
+                    showError('Invalid response format from server. Expected data array.');
                 }
             } catch (error) {
-                console.error('Error fetching blog posts:', error);
-                showError('Unable to load blog posts at this time. Please try again later.');
+                console.error('Detailed error fetching blog posts:', error);
+                if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                    showError('Network error: Unable to connect to the blog service. Please check your internet connection.');
+                } else {
+                    showError(`Unable to load blog posts: ${error.message}`);
+                }
             }
+        }
+
+        function showNoPosts() {
+            const blogContent = document.getElementById('blog-content');
+            blogContent.innerHTML = `
+                <div class="no-posts">
+                    <h3>No posts available yet</h3>
+                    <p>Check back soon for our latest insights and updates!</p>
+                </div>
+            `;
         }
 
         function displayBlogPosts(posts) {
