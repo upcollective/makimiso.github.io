@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post - Makimiso</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .blog-post-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .blog-post-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .blog-post-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-post-meta {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .blog-post-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .blog-post-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #34495e;
+        }
+        
+        .blog-post-content h1,
+        .blog-post-content h2,
+        .blog-post-content h3 {
+            margin: 2rem 0 1rem 0;
+            color: #2c3e50;
+        }
+        
+        .blog-post-content h1 {
+            font-size: 2rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        
+        .blog-post-content h2 {
+            font-size: 1.6rem;
+        }
+        
+        .blog-post-content h3 {
+            font-size: 1.3rem;
+        }
+        
+        .blog-post-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .loading, .error {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+        
+        .loading {
+            color: #7f8c8d;
+        }
+        
+        .error {
+            color: #e74c3c;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-post-container {
+                padding: 0 1rem;
+            }
+            
+            .blog-post-title {
+                font-size: 2rem;
+            }
+            
+            .blog-post-content {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Makimiso</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="blog-post-container">
+        <a href="blog.html" class="back-link">← Back to Blog</a>
+        
+        <div id="blog-post-content">
+            <div class="loading">
+                <h2>Loading post...</h2>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Makimiso</h3>
+                <p>Creating exceptional digital experiences.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Makimiso. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Configuration
+        const CMS_URL = 'https://makimiso-cms-production.up.railway.app';
+        
+        // Get slug from URL parameter
+        function getSlugFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('slug');
+        }
+        
+        // Format date
+        function formatDate(dateString) {
+            if (!dateString) return '';
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+        
+        // Get image URL
+        function getImageUrl(mediaArray) {
+            if (!Array.isArray(mediaArray) || mediaArray.length === 0) return null;
+            const image = mediaArray[0];
+            if (!image?.url) return null;
+            const url = image.url;
+            return url.startsWith('http') ? url : `${CMS_URL}${url}`;
+        }
+        
+        // Convert Strapi content to HTML
+        function contentToHTML(content) {
+            if (!Array.isArray(content)) return '';
+            
+            return content.map(block => {
+                switch (block.type) {
+                    case 'paragraph':
+                        const pText = block.children?.map(child => child.text || '').join('') || '';
+                        return pText ? `<p>${pText}</p>` : '';
+                    
+                    case 'heading':
+                        const hText = block.children?.map(child => child.text || '').join('') || '';
+                        const level = block.level || 1;
+                        return hText ? `<h${level}>${hText}</h${level}>` : '';
+                    
+                    default:
+                        return '';
+                }
+            }).join('');
+        }
+        
+        // Load and display blog post
+        async function loadBlogPost() {
+            const slug = getSlugFromURL();
+            const container = document.getElementById('blog-post-content');
+            
+            if (!slug) {
+                container.innerHTML = `
+                    <div class="error">
+                        <h2>Post not found</h2>
+                        <p>No blog post specified.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${CMS_URL}/api/blog-posts?filters[slug][$eq]=${slug}&populate=*`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                const posts = data.data || [];
+                
+                if (posts.length === 0) {
+                    container.innerHTML = `
+                        <div class="error">
+                            <h2>Post not found</h2>
+                            <p>The requested blog post could not be found.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                const post = posts[0];
+                const imageUrl = getImageUrl(post.featured_image);
+                const contentHTML = contentToHTML(post.content);
+                
+                // Update page title
+                document.title = `${post.title} - Makimiso`;
+                
+                container.innerHTML = `
+                    <article class="blog-post">
+                        <header class="blog-post-header">
+                            <h1 class="blog-post-title">${post.title}</h1>
+                            <div class="blog-post-meta">
+                                Published on ${formatDate(post.publishedAt)}
+                            </div>
+                        </header>
+                        
+                        ${imageUrl ? `<img src="${imageUrl}" alt="${post.title}" class="blog-post-image">` : ''}
+                        
+                        <div class="blog-post-content">
+                            ${contentHTML}
+                        </div>
+                    </article>
+                `;
+                
+            } catch (error) {
+                console.error('Error loading blog post:', error);
+                container.innerHTML = `
+                    <div class="error">
+                        <h2>Unable to load post</h2>
+                        <p>We're experiencing technical difficulties. Please try again later.</p>
+                        <details>
+                            <summary>Technical Details</summary>
+                            <p><small>Error: ${error.message}</small></p>
+                        </details>
+                    </div>
+                `;
+            }
+        }
+        
+        // Load post when page loads
+        document.addEventListener('DOMContentLoaded', loadBlogPost);
+    </script>
+</body>
+</html>
