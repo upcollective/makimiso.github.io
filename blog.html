@@ -239,8 +239,32 @@
             `;
         }
 
+        // Test function to check if API is reachable
+        async function testAPI() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/blog-posts`);
+                console.log('Basic API test - Status:', response.status);
+                return response.ok;
+            } catch (error) {
+                console.log('Basic API test failed:', error);
+                return false;
+            }
+        }
+
         // Initialize blog when page loads
-        document.addEventListener('DOMContentLoaded', fetchBlogPosts);
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log('DOM loaded, starting blog initialization...');
+            
+            // First test basic API connectivity
+            const apiWorking = await testAPI();
+            if (!apiWorking) {
+                showError('Blog service is currently unavailable. Please try again later.');
+                return;
+            }
+            
+            // If API is working, fetch posts
+            fetchBlogPosts();
+        });
     </script>
 </body>
 </html>
